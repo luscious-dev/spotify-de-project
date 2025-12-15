@@ -1,0 +1,9 @@
+{
+	"name": "spotify-data-adf",
+	"location": "westus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e57e5efe-8213-4a45-84c6-7d4a4712b87e",
+		"tenantId": "6fd95da6-49e1-480f-8123-86cc67303f49"
+	}
+}
