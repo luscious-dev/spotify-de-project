@@ -31,7 +31,7 @@
 					"source": {
 						"type": "SqlServerSource",
 						"sqlReaderQuery": {
-							"value": "SELECT * FROM @{pipeline().parameters.schema}.@{pipeline().parameters.table} WHERE @{pipeline().parameters.cdc_col} > '@{activity('Get CDC').output.value[0].cdc}'",
+							"value": "SELECT * FROM @{pipeline().parameters.schema}.@{pipeline().parameters.table} WHERE @{if(empty(pipeline().parameters.frm_date),concat(pipeline().parameters.cdc_col,' > ''',activity('Get CDC').output.value[0].cdc, ''''),concat(pipeline().parameters.cdc_col,' > ''', pipeline().parameters.frm_date, ''''))}",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
@@ -308,6 +308,9 @@
 			"cdc_col": {
 				"type": "string",
 				"defaultValue": "updated_at"
+			},
+			"frm_date": {
+				"type": "string"
 			}
 		},
 		"variables": {
