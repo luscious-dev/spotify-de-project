@@ -1,0 +1,12 @@
+{
+	"name": "DS_TestDB",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_TestDB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	}
+}
